@@ -32,6 +32,8 @@ get_hostname(){
         if [[ ! "${NAME[$i]}" == "null" ]];then 
           if [[ -n "${NAME[$i]}" ]];then
             if [[ ! $(cat /etc/hostname) = "${NAME[$i]}" ]];then
+                  oldname=$(cat /etc/hostname)
+                  sed -i -e "s/$oldname/${NAME[$i]}/g" /etc/hosts
                   hostnamectl set-hostname "${NAME[$i]}"
                   HOSTNAME="${NAME[$i]}"
                   recreate_promtail

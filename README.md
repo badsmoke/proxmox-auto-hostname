@@ -23,3 +23,6 @@ the script retrieves its vm-name with the help of the mac address and the proxmo
 
 first fetches the mac address from each interface
 Then the script connects to the api of proxmox and goes through all clusters, vm and their network interface and compares the mac addresses with each other, if the mac addresses match the corresponding vm-name is chosen and set
+
+## Dependencies
+`curl jq`
