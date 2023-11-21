@@ -36,7 +36,6 @@ get_hostname(){
                   sed -i -e "s/$oldname/${NAME[$i]}/g" /etc/hosts
                   hostnamectl set-hostname "${NAME[$i]}"
                   HOSTNAME="${NAME[$i]}"
-                  recreate_promtail
                   reboot
             fi
           fi
